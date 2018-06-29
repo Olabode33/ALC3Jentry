@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ALC3 Jentry</string>
+    <string name="new_entry_label">Write here</string>
+    <string name="save_button_label">Save</string>
+    <string name="save_menu_title">Save</string>
+    <string name="title_activity_all_entries">AllEntriesActivity</string>
+</resources>

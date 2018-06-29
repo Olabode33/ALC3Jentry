@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "451444548174",
+    "firebase_url": "https://alc-journalapp.firebaseio.com",
+    "project_id": "alc-journalapp",
+    "storage_bucket": "alc-journalapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451444548174:android:6b42555cd4a80f02",
+        "android_client_info": {
+          "package_name": "com.olabode33.android.alc3jentry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451444548174-d751sos2471qg0m2d1hglo43pvu3mt7c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.olabode33.android.alc3jentry",
+            "certificate_hash": "8a7b3162e11efeaf95aa3395f17043f862965041"
+          }
+        },
+        {
+          "client_id": "451444548174-a1nbkhp17eg5dd6du1c1cr0dkogr6tp0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpX3iqodO1DmpZg4po2-YhKRAcwBAjX0E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451444548174-a1nbkhp17eg5dd6du1c1cr0dkogr6tp0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451444548174:android:6376a911ecf0dc80",
+        "android_client_info": {
+          "package_name": "com.olabode33.android.jentry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451444548174-a1nbkhp17eg5dd6du1c1cr0dkogr6tp0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpX3iqodO1DmpZg4po2-YhKRAcwBAjX0E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
