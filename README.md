@@ -2,9 +2,9 @@
 A simple journal entry android app were users can pen down there thoughts and feelings.
 
 # Built With
-Android Studio
-Firebase
-Firebase UI
+- Android Studio
+- Firebase
+- Firebase UI
 
 # Features
 Google Authentication
