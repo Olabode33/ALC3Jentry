@@ -1,5 +1,7 @@
 package com.olabode33.android.alc3jentry.Model;
 
+import com.google.firebase.database.Exclude;
+
 import java.util.Date;
 
 /**
@@ -7,51 +9,61 @@ import java.util.Date;
  */
 
 public class JournalEntry {
+    @Exclude
+    private String key;
     private String entry;
     private String username;
-    private Date createdAt;
-    private Date updateAt;
+    private String createdAt;
+    private String updateAt;
 
-    public JournalEntry(){
+    public JournalEntry() {
 
     }
 
-    public JournalEntry(String entry, String name, Date createdAt, Date updateAt){
+    public JournalEntry(String entry, String name, String createdAt, String updateAt) {
         this.entry = entry;
         this.username = name;
         this.createdAt = createdAt;
         this.updateAt = updateAt;
     }
 
-    public String getEntry(){
+    public String getEntry() {
         return entry;
     }
 
-    public void setEntry(String entry){
+    public void setEntry(String entry) {
         this.entry = entry;
     }
 
-    public String getUsername(){
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(String name){
+    public void setUsername(String name) {
         this.username = name;
     }
 
-    public Date getCreatedAt(){
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt){
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdateAt(){
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt){
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
+    }
+
+    public String getKey() {
+        return this.key;
+    }
+
+    public void setKey(String uid) {
+        this.key = uid;
     }
 }

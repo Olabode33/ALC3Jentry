@@ -4,4 +4,7 @@
     <string name="save_button_label">Save</string>
     <string name="save_menu_title">Save</string>
     <string name="title_activity_all_entries">AllEntriesActivity</string>
+    <string name="logout_menu_title">Logout</string>
+    <string name="edit_menu_title">Edit</string>
+    <string name="firebase_database_reference">users</string>
 </resources>

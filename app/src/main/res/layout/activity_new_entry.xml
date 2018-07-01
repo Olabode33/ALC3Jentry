@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.olabode33.android.alc3jentry.NewEntryActivity"
+    android:orientation="vertical"
     android:padding="8dp"
-    android:orientation="vertical">
+    tools:context="com.olabode33.android.alc3jentry.NewEntryActivity">
 
     <EditText
         android:id="@+id/et_new_entry"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/transparent"
         android:ems="10"
+        android:gravity="top"
         android:hint="@string/new_entry_label"
         android:inputType="textMultiLine"
-        android:textSize="12sp"
-        android:background="@android:color/transparent"
-        android:gravity="top"/>
+        android:textSize="12sp" />
 
 </LinearLayout>

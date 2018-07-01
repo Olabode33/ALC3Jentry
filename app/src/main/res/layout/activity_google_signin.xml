@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.olabode33.android.alc3jentry.GoogleSigninActivity"
+    android:background="@color/colorPrimary"
     android:padding="16dp"
-    android:background="@color/colorPrimary">
+    tools:context="com.olabode33.android.alc3jentry.GoogleSigninActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,16 +16,16 @@
         android:fontFamily="cursive"
         android:padding="8dp"
         android:text="@string/app_name"
-        android:textSize="40dp"
         android:textColor="@android:color/white"
+        android:textSize="40dp"
         android:textStyle="bold" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"></com.google.android.gms.common.SignInButton>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"></com.google.android.gms.common.SignInButton>
 
     <ProgressBar
         android:id="@+id/signin_progress_bar"

@@ -12,17 +12,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".GoogleSigninActivity">
+        </activity>
+        <activity
+            android:name=".AllEntriesActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewEntryActivity" />
         <activity
-            android:name=".AllEntriesActivity"
-            android:label="@string/title_activity_all_entries"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".NewEntryActivity"
+            android:parentActivityName=".AllEntriesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AllEntriesActivity">
+            </meta-data>
+        </activity>
+        <activity
+            android:name=".EntryDetailsActivity"
+            android:parentActivityName=".AllEntriesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AllEntriesActivity"></meta-data>
+        </activity>
     </application>
 
 </manifest>

@@ -88,7 +88,7 @@ public class GoogleSigninActivity extends AppCompatActivity implements View.OnCl
             Toast toast = Toast.makeText(this, toastMsg, Toast.LENGTH_SHORT);
             toast.show();
 
-            Intent intent = new Intent(this, NewEntryActivity.class);
+            Intent intent = new Intent(this, AllEntriesActivity.class);
             startActivity(intent);
         }
     }
@@ -124,6 +124,12 @@ public class GoogleSigninActivity extends AppCompatActivity implements View.OnCl
             if(resultCode == RESULT_OK){
                 FirebaseUser user = mAuth.getCurrentUser();
                 updateUI(user);
+            }
+            else if(resultCode == RESULT_CANCELED){
+                String toastMsg = "Signin Cancelled";
+                Toast toast = Toast.makeText(this, toastMsg, Toast.LENGTH_SHORT);
+                toast.show();
+                finish();
             }
         }
     }
