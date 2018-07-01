@@ -7,12 +7,12 @@ A simple journal entry android app were users can pen down there thoughts and fe
 - Firebase UI
 
 # Features
-Google Authentication
-View all entries
-View entry details
-Add and modify entry
-Data persistent on firebase
-Offline capability
+- Google Authentication
+- View entries
+- View entry details
+- Add and modify entry
+- Data persistent on firebase
+- Offline capability
 
 # Installation
 1. Download the .apk file from the repository.
