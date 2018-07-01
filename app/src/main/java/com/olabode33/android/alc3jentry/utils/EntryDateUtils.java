@@ -11,10 +11,12 @@ import java.util.Locale;
 public class EntryDateUtils {
 
     private SimpleDateFormat fullDateStringFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
+    private static SimpleDateFormat entryDefaultDateFormate = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
     private Date convertedToDate;
 
-    private SimpleDateFormat slimDateFormat = new SimpleDateFormat("MMM dd, yyyy");
-    private SimpleDateFormat dayTimeDateFormat = new SimpleDateFormat("EEE, hh:mm:ss a");
+    private SimpleDateFormat slimDateFormat = new SimpleDateFormat("EEE MMM dd, yyyy");
+    private SimpleDateFormat noDaySlimDateFormate = new SimpleDateFormat("MMM dd, yyyy");
+    private SimpleDateFormat dayTimeDateFormat = new SimpleDateFormat("hh:mm:ss a");
 
     public EntryDateUtils(String fullDate) {
         try {
@@ -34,5 +36,15 @@ public class EntryDateUtils {
         String dayTime = dayTimeDateFormat.format(convertedToDate);
 
         return dayTime;
+    }
+
+    public String getNoDaySlimDateFormat(){
+        String noDay = noDaySlimDateFormate.format(convertedToDate);
+        return noDay;
+    }
+
+    public static String getCurrentDateDefaultFormat(){
+        String currentDate = entryDefaultDateFormate.format(new Date());
+        return currentDate;
     }
 }

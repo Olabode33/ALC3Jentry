@@ -2,14 +2,18 @@ package com.olabode33.android.alc3jentry;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.olabode33.android.alc3jentry.Model.JournalEntry;
+import com.olabode33.android.alc3jentry.utils.EntryDateUtils;
 
 import java.util.Date;
 
@@ -56,6 +61,8 @@ public class NewEntryActivity extends AppCompatActivity {
         if (edit_intent != null && edit_intent.hasExtra(EXTRA_ENTRY_KEY)) {
             isEdit = true;
             mEntryKey = edit_intent.getStringExtra(EXTRA_ENTRY_KEY);
+            ActionBar supportActionBar = getSupportActionBar();
+            supportActionBar.setTitle(R.string.edit_entry_title);
             attachValueEventListener();
         }
     }
@@ -84,16 +91,46 @@ public class NewEntryActivity extends AppCompatActivity {
     private void saveEntry() {
         if (isEdit && mEntryKey != null) {
             mJournalEntry.setEntry(mNewEntry.getText().toString());
-            mUserEntriesDatabaseReference.child(mEntryKey).setValue(mJournalEntry);
+            mUserEntriesDatabaseReference.child(mEntryKey).setValue(mJournalEntry)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Intent editSuccessIntent = new Intent(NewEntryActivity.this, EntryDetailsActivity.class);
+                            editSuccessIntent.putExtra(EntryDetailsActivity.EXTRA_ENTRY_KEY, mEntryKey);
+                            startActivity(editSuccessIntent);
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            String errToastMsg = "Error updating entry: " + e.getMessage();
+                            Toast toast = Toast.makeText(NewEntryActivity.this, errToastMsg, Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                    });
         } else {
-            String dateCreated = new Date().toString();
+            String dateCreated = EntryDateUtils.getCurrentDateDefaultFormat();
             JournalEntry entry = new JournalEntry(mNewEntry.getText().toString(), mUsername, dateCreated, null);
 
-            mUserEntriesDatabaseReference.push().setValue(entry);
-        }
+            mUserEntriesDatabaseReference.push().setValue(entry)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Intent intent = new Intent(NewEntryActivity.this, AllEntriesActivity.class);
+                            startActivity(intent);
+                        }
 
-        Intent intent = new Intent(this, AllEntriesActivity.class);
-        startActivity(intent);
+
+                    }).
+                    addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            String errToastMsg = "Error adding entry: " + e.getMessage();
+                            Toast toast = Toast.makeText(NewEntryActivity.this, errToastMsg, Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                    });
+        }
     }
 
     private void attachValueEventListener() {

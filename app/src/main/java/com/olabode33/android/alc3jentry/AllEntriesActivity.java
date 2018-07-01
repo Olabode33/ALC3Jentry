@@ -21,10 +21,15 @@ import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.olabode33.android.alc3jentry.Model.JournalEntry;
 import com.olabode33.android.alc3jentry.adapters.JournalEntryViewHolder;
 import com.olabode33.android.alc3jentry.utils.EntryDateUtils;
@@ -46,6 +51,7 @@ public class AllEntriesActivity extends AppCompatActivity {
 
         if (!persistenceEnabled) {
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+            persistenceEnabled = true;
         }
 
         mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -129,7 +135,15 @@ public class AllEntriesActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_logout:
-                AuthUI.getInstance().signOut(this);
+                AuthUI.getInstance()
+                        .signOut(this)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Intent signOutIntent = new Intent(AllEntriesActivity.this, GoogleSigninActivity.class);
+                                startActivity(signOutIntent);
+                            }
+                        });
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -166,7 +180,7 @@ public class AllEntriesActivity extends AppCompatActivity {
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), EntryDetailsActivity.class);
+                Intent intent = new Intent(AllEntriesActivity.this, EntryDetailsActivity.class);
                 intent.putExtra(EntryDetailsActivity.EXTRA_ENTRY_KEY, key);
                 startActivity(intent);
             }

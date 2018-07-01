@@ -23,6 +23,7 @@
         </activity>
         <activity
             android:name=".NewEntryActivity"
+            android:label="@string/new_entry_title"
             android:parentActivityName=".AllEntriesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -31,6 +32,7 @@
         </activity>
         <activity
             android:name=".EntryDetailsActivity"
+            android:label="@string/entry_details_title"
             android:parentActivityName=".AllEntriesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -7,4 +7,7 @@
     <string name="logout_menu_title">Logout</string>
     <string name="edit_menu_title">Edit</string>
     <string name="firebase_database_reference">users</string>
+    <string name="new_entry_title">New Entry</string>
+    <string name="edit_entry_title">Edit Entry</string>
+    <string name="entry_details_title">Entry Details</string>
 </resources>

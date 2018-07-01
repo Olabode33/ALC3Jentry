@@ -35,4 +35,8 @@ public class JournalEntryViewHolder extends RecyclerView.ViewHolder {
     public void setEntryText(String entry) {
         mEntryText.setText(entry);
     }
+
+    public void dismissEntryDate() {
+        mEntryDate.setVisibility(View.GONE);
+    }
 }

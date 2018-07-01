@@ -7,14 +7,15 @@
     android:divider="@android:drawable/divider_horizontal_dark"
     android:dividerPadding="8dp"
     android:orientation="vertical"
-    android:padding="8dp"
+    android:padding="16dp"
     android:showDividers="middle"
     tools:context="com.olabode33.android.alc3jentry.EntryDetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
 
         <TextView
             android:id="@+id/tv_entry_date"
@@ -34,15 +35,15 @@
             android:gravity="end"
             android:textColor="@android:color/tertiary_text_light"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="italic" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:background="@color/colorPrimary"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"></View>
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"></View>
 
     <TextView
         android:id="@+id/tv_entry_context"
